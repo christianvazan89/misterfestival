@@ -1,0 +1,54 @@
+prueba plantillas !! 
+
+if(isset($_SESSION["carrito"])){
+
+
+
+}
+else{ //si no hay sesion carrito se crea una cogiendo variables 
+	if(isset($_GET['festival'])){
+			//$price=0;
+			$foto="";
+			$preguntaprecio= "SELECT PRICE FROM TICKETS WHERE FESTIVAL='dreambeach'";
+			$price = mysqli_query($conexion,$preguntaprecio);
+			$row =mysqli_fetch_array($price);
+			$arraycompra[]=array('Festival'=>$_GET['festival'],
+							'Price'=>$row,
+							//'Imagen'=>$imagen,
+							'Cantidad'=>1);
+			$_SESSION['carrito']=$arraycompra;
+		
+	}
+}
+
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Compra de Entradas</title>
+  <meta charset="utf-8">
+</head>
+<body>
+	<header>Ver carrito de compras</header>
+	<section>
+		<?php
+			$totalcarro=0;
+			if(isset($_SESSION["carrito"])){
+				$info=$_SESSION["carrito"];
+				$totalcarro=0;
+				for($i=0;$i<count($info);$i++){
+		?>
+				<div class="producto">
+					<spam>Festival: <?php echo $info[$i]["Festival"];?></spam><br>
+					<spam>Precio: <?phsp echo $info[$i]["Price"];?></spam><br>
+				</div>
+			<?php
+			  	}
+			
+
+			}
+			?>
+	</section>
+</body>
+</html>
