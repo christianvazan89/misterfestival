@@ -1,2 +1,5 @@
-# Login with HTML5 AND CSS3
-![](docs/screenshot.png)
+Pagina web de informacion y venta de entradas de festivales 
+
+Creada a inicios de 2020 como proyecto final del grado superior DAW
+
+http://mister-festival.000webhostapp.com/
